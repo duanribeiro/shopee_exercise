@@ -27,14 +27,14 @@ class Seller(Base):
 
 
 def insert_data(target, connection, **kw):
-    preloaded_sellers = {
-        {'name': 'Cloud Strife'},
-        {'name': 'Lara Croft'},
-        {'name': 'Mario'},
-        {'name': 'Link'},
-        {'name': 'Donkey Kong'},
-    }
-    connection.execute(target.insert(), preloaded_sellers)
+    connection.execute(
+        target.insert(),
+        {'name': 'cloud strife'},
+        {'name': 'lara croft'},
+        {'name': 'mario'},
+        {'name': 'link'},
+        {'name': 'donkey kong'}
+   )
 
 
 event.listen(Seller.__table__, 'after_create', insert_data)

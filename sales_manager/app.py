@@ -1,7 +1,8 @@
-from helpers import start_sales_manager, make_sale
+from helpers import SalesManager
 
 if __name__ == '__main__':
-    session = start_sales_manager()
+    manager = SalesManager()
+    manager.connect_on_db()
 
-    while session:
-        make_sale()
+    while manager.is_running:
+        manager.make_sale()
